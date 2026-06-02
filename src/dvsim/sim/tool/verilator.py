@@ -57,9 +57,7 @@ class Verilator:
 
         """
 
-        # TODO: This is dumb. dvsim should get this from measuring how long
-        # the subprocess runs, not from hackily parsing the log file with regexes.
-        return 0.0, "s"
+        raise NotImplementedError("Verilator is unsupported for job runtime extraction.")
 
     @staticmethod
     def get_simulated_time(_job: JobSpec, log_text: Sequence[str]) -> tuple[float, str]:
@@ -81,9 +79,9 @@ class Verilator:
             RuntimeError: exception if the search pattern is not found.
 
         """
-        # TODO: Also dumb. This should be obtained using TCL for commercial
-        # simulators and from the main.cpp harness for Verilator.
-        return 0.0, "s"
+
+        raise NotImplementedError("Verilator is unsupported for simulation time extraction.")
+
 
     @staticmethod
     def get_coverage_metrics(raw_metrics: Mapping[str, float | None] | None) -> CoverageMetrics:
